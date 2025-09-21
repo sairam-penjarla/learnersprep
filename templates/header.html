@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+
+<header class="header">
+        <div class="header-container">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <a href="#" class="logo-link">
+                    <!-- Placeholder for your logo -->
+                    <svg class="logo-icon" viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                    <span class="logo-text">Your EduSite</span>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation (Hidden on Mobile) -->
+            <nav class="desktop-nav">
+                <a href="#" class="nav-link">Courses</a>
+                <a href="#" class="nav-link">Practice test</a>
+                <a href="#" class="nav-link active">About Us</a>
+            </nav>
+
+            <!-- Action Buttons (Hidden on Mobile) -->
+            <div class="action-buttons">
+                <button class="button button-primary">
+                    Take AI Diagnostic Test
+                </button>
+                <button class="button button-secondary">
+                    Sign In
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button (Hamburger Icon) -->
+            <div class="mobile-menu-button-wrapper">
+                <button id="mobile-menu-button" class="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="mobile-menu-overlay">
+            <nav class="mobile-nav-links">
+                <a href="#" class="mobile-nav-link">Courses</a>
+                <a href="#" class="mobile-nav-link">Practice test</a>
+                <a href="#" class="mobile-nav-link active">About Us</a>
+                <button class="button button-primary mobile-button">
+                    Take AI Diagnostic Test
+                </button>
+                <button class="button button-secondary mobile-button">
+                    Sign In
+                </button>
+            </nav>
+        </div>
+    </header>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+
+            // Toggle mobile menu visibility
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('is-open');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('is-open');
+                });
+            });
+
+            // Optional: Dynamic active link highlighting (uncomment to use)
+            // This example sets 'About Us' as active. In a real app,
+            // you'd typically determine the active page from window.location.pathname
+            // or a routing mechanism.
+            // const currentPageName = 'About Us';
+            // navLinks.forEach(link => {
+            //     if (link.textContent.trim() === currentPageName) {
+            //         link.classList.add('active');
+            //     } else {
+            //         link.classList.remove('active');
+            //     }
+            // });
+        });
+    </script>
